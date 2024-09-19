@@ -1,0 +1,6156 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Service",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "Games"
+    },
+    {
+      "name": "Userapi"
+    },
+    {
+      "name": "Data"
+    },
+    {
+      "name": "Lang"
+    },
+    {
+      "name": "LoginRegister"
+    }
+  ],
+  "paths": {
+    "/api/user/auth/guest": {
+      "post": {
+        "tags": [
+          "LoginRegister"
+        ],
+        "operationId": "Guest_create",
+        "parameters": [
+          {
+            "name": "origin",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthGuestResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthGuestRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/user/login": {
+      "post": {
+        "tags": [
+          "LoginRegister"
+        ],
+        "operationId": "Login_create",
+        "parameters": [
+          {
+            "name": "origin",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data/static/banners/{name}/{type}/{lang}/{session}": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "operationId": "Banner_read",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "session",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BannersResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data/static/marketgroup": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "operationId": "Marketgroup_list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketgroupResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data/static/pages/locations/{type}/{lang}/{session}": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "operationId": "PagesLocations_read",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "session",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagesLocationsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data/static/pages/{name}/{type}/{lang}/{session}": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "operationId": "Pages_read",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "session",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data/static/popup/{name}/{type}/{lang}/{session}": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "operationId": "Popup_read",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "session",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PopupResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/game/list/cats": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "Category_list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/game/list/companies": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "Company_list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/game/list/company/{id}": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "SpecificCompany_read",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyIdResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/game/list/games": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "GamesList_list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GamesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/game/list/specs": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "SpecGamesList_list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpecGamesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/game/list/specsgames/{id}": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "SpecGame_read",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpecSpecificGameResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/game/open/{id}": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "OpenGame_read",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OpenSpecificGameResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/liveoddsshort": {
+      "post": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "LiveOddsShort_create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiveOddsShortResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LiveOddsShortRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/livesshort": {
+      "post": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "LivesShort_create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LivesShortResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LivesShortRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/matchesshort": {
+      "post": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "MatchesShort_create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchesShortResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatchesShortRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pre/categories": {
+      "post": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "Categories_create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoriesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoriesRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pre/sports": {
+      "post": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "Sports_create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SportsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SportsRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pre/tournaments": {
+      "post": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "Tournament_create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TournamentResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TournamentRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/register": {
+      "post": {
+        "tags": [
+          "LoginRegister"
+        ],
+        "operationId": "Register_create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegisterResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/register/changepassword": {
+      "post": {
+        "tags": [
+          "LoginRegister"
+        ],
+        "operationId": "ChangePassword_create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangePasswordResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/register/check/{cpf}": {
+      "post": {
+        "tags": [
+          "LoginRegister"
+        ],
+        "operationId": "CpfCheck_create",
+        "parameters": [
+          {
+            "name": "cpf",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CpfCheckResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CpfCheckRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/register/forgetpassword": {
+      "post": {
+        "tags": [
+          "LoginRegister"
+        ],
+        "operationId": "Forgetpassword_create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForgetpasswordRequest"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgetpasswordRequestCreate"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/userapi/data/info": {
+      "get": {
+        "tags": [
+          "Userapi"
+        ],
+        "operationId": "Info_list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InfoResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/userapi/expenses/list": {
+      "post": {
+        "tags": [
+          "Userapi"
+        ],
+        "operationId": "Expenses_create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpensesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpensesRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/userapi/limit": {
+      "post": {
+        "tags": [
+          "Userapi"
+        ],
+        "operationId": "Limit_create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/limitResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/limitRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/userapi/moves": {
+      "get": {
+        "tags": [
+          "Userapi"
+        ],
+        "operationId": "Moves_list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MovesRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/userapi/payment/deposits/filter": {
+      "post": {
+        "tags": [
+          "Userapi"
+        ],
+        "operationId": "DepositsFilter_create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DepositsFilterResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepositsFilterRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/userapi/payment/deposits/status/{id}": {
+      "get": {
+        "tags": [
+          "Userapi"
+        ],
+        "operationId": "DepositStatus_read",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DepositStatusResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/userapi/payment/providers": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "Providers_list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProvidersResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/userapi/payment/withdraws/filter": {
+      "post": {
+        "tags": [
+          "Userapi"
+        ],
+        "operationId": "WithdrawsFilter_create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WithdrawsFilterResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WithdrawsFilterRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/userapi/payment/withdraws/status/{id}": {
+      "get": {
+        "tags": [
+          "Userapi"
+        ],
+        "operationId": "WithdrawStatus_read",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WithdrawStatusResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/userapi/trackier/login": {
+      "get": {
+        "tags": [
+          "LoginRegister"
+        ],
+        "operationId": "TrackierLogin_read",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TrackierLoginResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/lang/get/frontend/{lang}": {
+      "get": {
+        "tags": [
+          "Lang"
+        ],
+        "operationId": "frontendLang_read",
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/frontendLangResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/lang/get/markets/{lang}": {
+      "get": {
+        "tags": [
+          "Lang"
+        ],
+        "operationId": "markets_read",
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/marketsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/lang/get/selections/{lang}": {
+      "get": {
+        "tags": [
+          "Lang"
+        ],
+        "operationId": "selections_read",
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/selectionsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/ticketcreate/tickets": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "operationId": "Tickets_list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TicketsRequest"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "http": []
+    }
+  ],
+  "components": {
+    "schemas": {
+      "AuthGuestRequest": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "serverId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "lang",
+          "serverId"
+        ]
+      },
+      "AuthGuestResponse": {
+        "type": "object",
+        "properties": {
+          "exp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "token": {
+            "type": "object",
+            "properties": {
+              "exp": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "status": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "token": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "exp",
+              "status",
+              "token"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          }
+        },
+        "required": [
+          "exp",
+          "status",
+          "token"
+        ]
+      },
+      "BannersResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "widthMax": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "heightMax": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "Slider": {
+                "type": "boolean"
+              },
+              "Banner": {
+                "type": "boolean"
+              },
+              "MultiFile": {
+                "type": "boolean"
+              },
+              "MultiLanguage": {
+                "type": "boolean"
+              },
+              "Textable": {
+                "type": "boolean"
+              },
+              "Responsive": {
+                "type": "boolean"
+              },
+              "duration": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "files": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "file": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "isIframe": {
+                      "type": "boolean"
+                    },
+                    "isNewWindow": {
+                      "type": "boolean"
+                    },
+                    "hasButton": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "file",
+                    "text",
+                    "url",
+                    "isIframe",
+                    "isNewWindow",
+                    "hasButton"
+                  ],
+                  "x-typespec-name": "(anonymous model)"
+                },
+                "x-typespec-name": "(anonymous model)[]"
+              }
+            },
+            "required": [
+              "name",
+              "widthMax",
+              "heightMax",
+              "Slider",
+              "Banner",
+              "MultiFile",
+              "MultiLanguage",
+              "Textable",
+              "Responsive",
+              "duration",
+              "files"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "CategoriesRequest": {
+        "type": "object",
+        "properties": {
+          "reqId": {
+            "type": "string"
+          },
+          "sportId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reqId",
+          "sportId",
+          "lang",
+          "startDate",
+          "endDate"
+        ]
+      },
+      "CategoriesResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "n": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "c": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "lc": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "required": [
+                "n",
+                "id",
+                "c",
+                "lc"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "status",
+          "results"
+        ]
+      },
+      "CategoryResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "catType": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "specs": {
+                  "type": "string"
+                },
+                "totalGames": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "catType",
+                "name",
+                "specs",
+                "totalGames"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "data"
+        ]
+      },
+      "ChangePasswordRequest": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "newpassword": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "password",
+          "newpassword"
+        ]
+      },
+      "ChangePasswordResponse": {
+        "type": "object",
+        "properties": {
+          "newpassword": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "newpassword"
+        ]
+      },
+      "CompanyIdResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "compId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "category": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "status": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "logo": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "compId",
+                "category",
+                "status",
+                "logo"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "CompanyResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "cmpType": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "specs": {
+                  "type": "number",
+                  "enum": [
+                    0
+                  ]
+                },
+                "totalGames": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "logo": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "cmpType",
+                "name",
+                "specs",
+                "totalGames",
+                "category",
+                "logo"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "data"
+        ]
+      },
+      "CpfCheckRequest": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "lang"
+        ]
+      },
+      "CpfCheckResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "cpf": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "birth_date": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cpf",
+              "name",
+              "birth_date"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "DepositStatusResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "Id": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              },
+              "cashbox": {
+                "type": "string"
+              },
+              "cureId": {
+                "type": "string"
+              },
+              "operatorId": {
+                "type": "string"
+              },
+              "paidamount": {
+                "type": "string"
+              },
+              "processor": {
+                "type": "string"
+              },
+              "serverId": {
+                "type": "string"
+              },
+              "spec": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "updateAt": {
+                "type": "string"
+              },
+              "userId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Id",
+              "amount",
+              "cashbox",
+              "cureId",
+              "operatorId",
+              "paidamount",
+              "processor",
+              "serverId",
+              "spec",
+              "status",
+              "updateAt",
+              "userId"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "DepositsFilterRequest": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "array",
+            "items": {},
+            "x-typespec-name": "[]"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "order": {
+            "type": "string"
+          },
+          "orderAs": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "createdAt",
+          "lang",
+          "limit",
+          "order",
+          "orderAs",
+          "page"
+        ]
+      },
+      "DepositsFilterResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string"
+                },
+                "serverId": {
+                  "type": "string"
+                },
+                "operatorId": {
+                  "type": "string"
+                },
+                "userId": {
+                  "type": "string"
+                },
+                "curId": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "string"
+                },
+                "paidamount": {
+                  "type": "string"
+                },
+                "processor": {
+                  "type": "string"
+                },
+                "cashbox": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string"
+                },
+                "updatedAt": {
+                  "type": "string"
+                },
+                "spec": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Id",
+                "serverId",
+                "operatorId",
+                "userId",
+                "curId",
+                "amount",
+                "paidamount",
+                "processor",
+                "cashbox",
+                "status",
+                "createdAt",
+                "updatedAt",
+                "spec"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "limit": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "page": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "total": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "limit",
+              "page",
+              "total"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          }
+        },
+        "required": [
+          "status",
+          "data",
+          "meta"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ]
+      },
+      "ExpensesRequest": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "filter": {
+            "type": "object",
+            "properties": {
+              "startDate": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "endDate": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "required": [
+              "startDate",
+              "endDate"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          }
+        },
+        "required": [
+          "lang",
+          "filter"
+        ]
+      },
+      "ExpensesResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {},
+            "x-typespec-name": "[]"
+          },
+          "fields": {
+            "type": "object",
+            "properties": {
+              "transType": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "x-typespec-name": "string[]"
+              },
+              "ticketType": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "x-typespec-name": "string[]"
+              }
+            },
+            "required": [
+              "transType",
+              "ticketType"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          },
+          "names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "x-typespec-name": "string[]"
+          }
+        },
+        "required": [
+          "status",
+          "data",
+          "fields",
+          "names"
+        ]
+      },
+      "ForgetpasswordRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "tckno": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "lang",
+          "username",
+          "tckno"
+        ]
+      },
+      "ForgetpasswordRequestCreate": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "tckno": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "lang",
+          "username",
+          "tckno"
+        ]
+      },
+      "GamesResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "compId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "category": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "status": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "logo": {
+                  "type": "string"
+                },
+                "specs": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "compId",
+                "category",
+                "status",
+                "logo",
+                "specs"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "data"
+        ]
+      },
+      "InfoResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "balance": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "firstname": {
+                "type": "string"
+              },
+              "lastname": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "jackpots": {
+                "type": "array",
+                "items": {},
+                "x-typespec-name": "[]"
+              },
+              "siteCom": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "bonus": {
+                "type": "object",
+                "properties": {
+                  "cashBackPercent": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "moneyPercent": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "cashOutPercent": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "cancelTimeout": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                },
+                "required": [
+                  "cashBackPercent",
+                  "moneyPercent",
+                  "cashOutPercent",
+                  "cancelTimeout"
+                ],
+                "x-typespec-name": "(anonymous model)"
+              },
+              "limits": {
+                "type": "object",
+                "properties": {
+                  "coupon": {
+                    "type": "object",
+                    "properties": {
+                      "minOdd": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "maxOdd": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "minTotalOdd": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "maxTotalOdd": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "sameCoupon": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "sameMatch": {
+                        "type": "integer",
+                        "format": "int32"
+                      }
+                    },
+                    "required": [
+                      "minOdd",
+                      "maxOdd",
+                      "minTotalOdd",
+                      "maxTotalOdd",
+                      "sameCoupon",
+                      "sameMatch"
+                    ],
+                    "x-typespec-name": "(anonymous model)"
+                  },
+                  "stakes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "maxStake": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "minStake": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "maxPay": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "minTip": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "betLimit": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "maxStake",
+                        "minStake",
+                        "maxPay",
+                        "minTip",
+                        "betLimit"
+                      ],
+                      "x-typespec-name": "(anonymous model)"
+                    },
+                    "x-typespec-name": "(anonymous model)[]"
+                  }
+                },
+                "required": [
+                  "coupon",
+                  "stakes"
+                ],
+                "x-typespec-name": "(anonymous model)"
+              },
+              "permissions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "x-typespec-name": "string[]"
+              }
+            },
+            "required": [
+              "balance",
+              "currency",
+              "username",
+              "firstname",
+              "lastname",
+              "type",
+              "jackpots",
+              "siteCom",
+              "bonus",
+              "limits",
+              "permissions"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "LiveOddsShortRequest": {
+        "type": "object",
+        "properties": {
+          "getFull": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "matchId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "getFull",
+          "lang",
+          "matchId"
+        ]
+      },
+      "LiveOddsShortResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "match": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "tid": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "cid": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "sid": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "isa": {
+                "type": "boolean"
+              },
+              "cn": {
+                "type": "string"
+              },
+              "tn": {
+                "type": "string"
+              },
+              "d": {
+                "type": "string"
+              },
+              "ms": {
+                "type": "string"
+              },
+              "ti": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "tir": {
+                "type": "string"
+              },
+              "t": {
+                "type": "string"
+              },
+              "iss": {
+                "type": "boolean"
+              },
+              "isv": {
+                "type": "boolean"
+              },
+              "hid": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "aid": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "eid": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "h": {
+                "type": "string"
+              },
+              "a": {
+                "type": "string"
+              },
+              "s": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "required": [
+              "id",
+              "tid",
+              "cid",
+              "sid",
+              "isa",
+              "cn",
+              "tn",
+              "d",
+              "ms",
+              "ti",
+              "tir",
+              "t",
+              "iss",
+              "isv",
+              "hid",
+              "aid",
+              "eid",
+              "h",
+              "a",
+              "s"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          },
+          "odds": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "mid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "hv": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "av": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "iss": {
+                  "type": "boolean"
+                },
+                "isv": {
+                  "type": "boolean"
+                },
+                "sp": {
+                  "type": "string"
+                },
+                "mb": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "sq": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "ps": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "s": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "sid": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "hv": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "av": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "v": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "sp": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "sid",
+                      "hv",
+                      "av",
+                      "v",
+                      "sp"
+                    ],
+                    "x-typespec-name": "(anonymous model)"
+                  },
+                  "x-typespec-name": "(anonymous model)[]"
+                }
+              },
+              "required": [
+                "id",
+                "mid",
+                "hv",
+                "av",
+                "iss",
+                "isv",
+                "sp",
+                "mb",
+                "sq",
+                "ps",
+                "s"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "status",
+          "match",
+          "odds"
+        ]
+      },
+      "LivesShortRequest": {
+        "type": "object",
+        "properties": {
+          "sportId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "odds": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {},
+              "x-typespec-name": "[int32, int32]"
+            },
+            "x-typespec-name": "[int32, int32][]"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "sportId",
+          "lang",
+          "odds",
+          "limit",
+          "startDate",
+          "endDate"
+        ]
+      },
+      "LivesShortResponse": {
+        "type": "object",
+        "properties": {
+          "m": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "hid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "h": {
+                  "type": "string"
+                },
+                "aid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "a": {
+                  "type": "string"
+                },
+                "isa": {
+                  "type": "boolean"
+                },
+                "bs": {
+                  "type": "string"
+                },
+                "cid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "cn": {
+                  "type": "string"
+                },
+                "ec": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "la": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "iss": {
+                  "type": "boolean"
+                },
+                "isv": {
+                  "type": "boolean"
+                },
+                "d": {
+                  "type": "string"
+                },
+                "ms": {
+                  "type": "string"
+                },
+                "ti": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "tie": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "tir": {
+                  "type": "string"
+                },
+                "pr": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "prc": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "pl": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "sid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "tid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "tn": {
+                  "type": "string"
+                },
+                "s": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "scr": {
+                  "type": "object",
+                  "properties": {
+                    "h": {
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "a": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "required": [
+                    "h",
+                    "a"
+                  ],
+                  "x-typespec-name": "(anonymous model)"
+                },
+                "p": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "home": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "away": {
+                        "type": "integer",
+                        "format": "int32"
+                      }
+                    },
+                    "required": [
+                      "home",
+                      "away"
+                    ],
+                    "x-typespec-name": "(anonymous model)"
+                  },
+                  "x-typespec-name": "(anonymous model)[]"
+                },
+                "stt": {
+                  "type": "object",
+                  "properties": {
+                    "c": {
+                      "type": "object",
+                      "properties": {
+                        "r": {
+                          "type": "object",
+                          "properties": {
+                            "h": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "a": {
+                              "type": "integer",
+                              "format": "int32"
+                            }
+                          },
+                          "required": [
+                            "h",
+                            "a"
+                          ],
+                          "x-typespec-name": "(anonymous model)"
+                        },
+                        "y": {
+                          "type": "object",
+                          "properties": {
+                            "h": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "a": {
+                              "type": "integer",
+                              "format": "int32"
+                            }
+                          },
+                          "required": [
+                            "h",
+                            "a"
+                          ],
+                          "x-typespec-name": "(anonymous model)"
+                        }
+                      },
+                      "required": [
+                        "r",
+                        "y"
+                      ],
+                      "x-typespec-name": "(anonymous model)"
+                    },
+                    "cr": {
+                      "type": "object",
+                      "properties": {
+                        "h": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "a": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "required": [
+                        "h",
+                        "a"
+                      ],
+                      "x-typespec-name": "(anonymous model)"
+                    },
+                    "p": {
+                      "type": "object",
+                      "properties": {
+                        "h": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "a": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "required": [
+                        "h",
+                        "a"
+                      ],
+                      "x-typespec-name": "(anonymous model)"
+                    }
+                  },
+                  "required": [
+                    "c",
+                    "cr",
+                    "p"
+                  ],
+                  "x-typespec-name": "(anonymous model)"
+                },
+                "o": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "mid": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "hv": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "av": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "iss": {
+                        "type": "boolean"
+                      },
+                      "isv": {
+                        "type": "boolean"
+                      },
+                      "sp": {
+                        "type": "string"
+                      },
+                      "mb": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "sq": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "s": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "sid": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "hv": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "av": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "v": {
+                              "type": "integer",
+                              "format": "int32"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "sid",
+                            "hv",
+                            "av",
+                            "v"
+                          ],
+                          "x-typespec-name": "(anonymous model)"
+                        },
+                        "x-typespec-name": "(anonymous model)[]"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "mid",
+                      "hv",
+                      "av",
+                      "iss",
+                      "isv",
+                      "sp",
+                      "mb",
+                      "sq",
+                      "s"
+                    ],
+                    "x-typespec-name": "(anonymous model)"
+                  },
+                  "x-typespec-name": "(anonymous model)[]"
+                }
+              },
+              "required": [
+                "id",
+                "hid",
+                "h",
+                "aid",
+                "a",
+                "isa",
+                "bs",
+                "cid",
+                "cn",
+                "ec",
+                "la",
+                "iss",
+                "isv",
+                "d",
+                "ms",
+                "ti",
+                "tie",
+                "tir",
+                "pr",
+                "prc",
+                "pl",
+                "sid",
+                "tid",
+                "tn",
+                "s",
+                "scr",
+                "p",
+                "stt",
+                "o"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          },
+          "s": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "sn": {
+                  "type": "string"
+                },
+                "s": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "sid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "live": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "mc": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "required": [
+                "sn",
+                "s",
+                "sid",
+                "live",
+                "mc"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "sid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "c": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "m",
+          "s",
+          "status",
+          "sid",
+          "c"
+        ]
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "serverId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "lang",
+          "password",
+          "serverId",
+          "username"
+        ]
+      },
+      "LoginResponse": {
+        "type": "object",
+        "properties": {
+          "exp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "exp",
+          "status",
+          "token"
+        ]
+      },
+      "MarketgroupResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "marketGroups": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {},
+              "x-typespec-name": "[string, [int32, int32[]][]]"
+            },
+            "x-typespec-name": "[string, [int32, int32[]][]][]"
+          },
+          "specialGroups": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {},
+              "x-typespec-name": "[string, (anonymous model)]"
+            },
+            "x-typespec-name": "[string, (anonymous model)][]"
+          },
+          "marketOrder": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "x-typespec-name": "string[]"
+          },
+          "bannedMarkets": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-typespec-name": "int32[]"
+          }
+        },
+        "required": [
+          "status",
+          "marketGroups",
+          "specialGroups",
+          "marketOrder",
+          "bannedMarkets"
+        ]
+      },
+      "MatchesShortRequest": {
+        "type": "object",
+        "properties": {
+          "sportId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "odds": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {},
+              "x-typespec-name": "[int32, int32]"
+            },
+            "x-typespec-name": "[int32, int32][]"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string"
+          },
+          "isStarted": {
+            "type": "boolean"
+          },
+          "oddLimit": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "sportId",
+          "lang",
+          "odds",
+          "limit",
+          "startDate",
+          "endDate",
+          "isStarted",
+          "oddLimit"
+        ]
+      },
+      "MatchesShortResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "request": {
+            "type": "object",
+            "properties": {
+              "noResult": {
+                "type": "boolean"
+              },
+              "order": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "SportId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "oddLimit": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "lang": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "startDate": {
+                "type": "string"
+              },
+              "endDate": {
+                "type": "string"
+              },
+              "odds": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {},
+                  "x-typespec-name": "[int32, int32]"
+                },
+                "x-typespec-name": "[int32, int32][]"
+              }
+            },
+            "required": [
+              "noResult",
+              "order",
+              "SportId",
+              "oddLimit",
+              "lang",
+              "limit",
+              "startDate",
+              "endDate",
+              "odds"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "hid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "h": {
+                  "type": "string"
+                },
+                "aid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "a": {
+                  "type": "string"
+                },
+                "isa": {
+                  "type": "boolean"
+                },
+                "bs": {
+                  "type": "string"
+                },
+                "cid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "cn": {
+                  "type": "string"
+                },
+                "ec": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "la": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "iss": {
+                  "type": "boolean"
+                },
+                "isv": {
+                  "type": "boolean"
+                },
+                "d": {
+                  "type": "string"
+                },
+                "ms": {
+                  "type": "string"
+                },
+                "ti": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "tie": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "tir": {
+                  "type": "string"
+                },
+                "pr": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "prc": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "pl": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "sid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "tid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "tn": {
+                  "type": "string"
+                },
+                "s": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "scr": {
+                  "type": "object",
+                  "properties": {
+                    "h": {
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "a": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "required": [
+                    "h",
+                    "a"
+                  ],
+                  "x-typespec-name": "(anonymous model)"
+                },
+                "p": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "home": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "away": {
+                        "type": "integer",
+                        "format": "int32"
+                      }
+                    },
+                    "required": [
+                      "home",
+                      "away"
+                    ],
+                    "x-typespec-name": "(anonymous model)"
+                  },
+                  "x-typespec-name": "(anonymous model)[]"
+                },
+                "stt": {
+                  "type": "object",
+                  "properties": {
+                    "c": {
+                      "type": "object",
+                      "properties": {
+                        "r": {
+                          "type": "object",
+                          "properties": {
+                            "h": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "a": {
+                              "type": "integer",
+                              "format": "int32"
+                            }
+                          },
+                          "required": [
+                            "h",
+                            "a"
+                          ],
+                          "x-typespec-name": "(anonymous model)"
+                        },
+                        "y": {
+                          "type": "object",
+                          "properties": {
+                            "h": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "a": {
+                              "type": "integer",
+                              "format": "int32"
+                            }
+                          },
+                          "required": [
+                            "h",
+                            "a"
+                          ],
+                          "x-typespec-name": "(anonymous model)"
+                        }
+                      },
+                      "required": [
+                        "r",
+                        "y"
+                      ],
+                      "x-typespec-name": "(anonymous model)"
+                    },
+                    "cr": {
+                      "type": "object",
+                      "properties": {
+                        "h": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "a": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "required": [
+                        "h",
+                        "a"
+                      ],
+                      "x-typespec-name": "(anonymous model)"
+                    },
+                    "p": {
+                      "type": "object",
+                      "properties": {
+                        "h": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "a": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "required": [
+                        "h",
+                        "a"
+                      ],
+                      "x-typespec-name": "(anonymous model)"
+                    }
+                  },
+                  "required": [
+                    "c",
+                    "cr",
+                    "p"
+                  ],
+                  "x-typespec-name": "(anonymous model)"
+                },
+                "o": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "mid": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "hv": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "av": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "iss": {
+                        "type": "boolean"
+                      },
+                      "isv": {
+                        "type": "boolean"
+                      },
+                      "sp": {
+                        "type": "string"
+                      },
+                      "mb": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "sq": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "s": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "sid": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "hv": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "av": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "v": {
+                              "type": "integer",
+                              "format": "int32"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "sid",
+                            "hv",
+                            "av",
+                            "v"
+                          ],
+                          "x-typespec-name": "(anonymous model)"
+                        },
+                        "x-typespec-name": "(anonymous model)[]"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "mid",
+                      "hv",
+                      "av",
+                      "iss",
+                      "isv",
+                      "sp",
+                      "mb",
+                      "sq",
+                      "s"
+                    ],
+                    "x-typespec-name": "(anonymous model)"
+                  },
+                  "x-typespec-name": "(anonymous model)[]"
+                }
+              },
+              "required": [
+                "id",
+                "hid",
+                "h",
+                "aid",
+                "a",
+                "isa",
+                "bs",
+                "cid",
+                "cn",
+                "ec",
+                "la",
+                "iss",
+                "isv",
+                "d",
+                "ms",
+                "ti",
+                "tie",
+                "tir",
+                "pr",
+                "prc",
+                "pl",
+                "sid",
+                "tid",
+                "tn",
+                "s",
+                "scr",
+                "p",
+                "stt",
+                "o"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "status",
+          "request",
+          "results"
+        ]
+      },
+      "MovesRequest": {
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "endDate": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "startDate",
+          "endDate"
+        ]
+      },
+      "MovesResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "type": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "datecompleted": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "required": [
+                "amount",
+                "type",
+                "datecompleted"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "OpenSpecificGameData": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "nullable": true,
+                "x-typespec-name": "string | null"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          },
+          "gameDetails": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "name": {
+                "type": "string"
+              },
+              "company": {
+                "type": "string"
+              },
+              "category": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "catName": {
+                "type": "string"
+              },
+              "status": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "specs": {
+                "type": "string"
+              },
+              "api": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "compId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "gameOrder": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "options": {
+                "type": "string"
+              },
+              "extras": {
+                "type": "object",
+                "properties": {
+                  "gameId": {
+                    "type": "string"
+                  },
+                  "providerId": {
+                    "type": "string"
+                  },
+                  "providerSlug": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gameId",
+                  "providerId",
+                  "providerSlug"
+                ],
+                "x-typespec-name": "(anonymous model)"
+              },
+              "gameid": {
+                "type": "string"
+              },
+              "commission": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "company",
+              "category",
+              "catName",
+              "status",
+              "specs",
+              "api",
+              "logo",
+              "compId",
+              "gameOrder",
+              "options",
+              "extras",
+              "gameid",
+              "commission"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          },
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "operatorid": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "websiteid": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "name": {
+                "type": "string"
+              },
+              "status": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "systemStatus": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "systemArray": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "specs": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "levels": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "x-typespec-name": "int32[]"
+              },
+              "operator": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "opName": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "roleid": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "autocutoff": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "acType": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "parent": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "activeStatus": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "bonusJson": {
+                    "type": "object",
+                    "properties": {
+                      "cashBackPercent": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "moneyPercent": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "cashOutPercent": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "cancelTimeout": {
+                        "type": "integer",
+                        "format": "int32"
+                      }
+                    },
+                    "required": [
+                      "cashBackPercent",
+                      "moneyPercent",
+                      "cashOutPercent",
+                      "cancelTimeout"
+                    ],
+                    "x-typespec-name": "(anonymous model)"
+                  },
+                  "currencyIds": {
+                    "type": "array",
+                    "items": {},
+                    "x-typespec-name": "[]"
+                  },
+                  "currencyId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "createdAt": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "updatedAt": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "closedAt": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                },
+                "required": [
+                  "id",
+                  "opName",
+                  "status",
+                  "roleid",
+                  "autocutoff",
+                  "acType",
+                  "parent",
+                  "activeStatus",
+                  "bonusJson",
+                  "currencyIds",
+                  "currencyId",
+                  "description",
+                  "createdAt",
+                  "updatedAt",
+                  "closedAt"
+                ],
+                "x-typespec-name": "(anonymous model)"
+              },
+              "limits": {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "array",
+                    "items": {},
+                    "x-typespec-name": "[]"
+                  },
+                  "category": {
+                    "type": "array",
+                    "items": {},
+                    "x-typespec-name": "[]"
+                  },
+                  "game": {
+                    "type": "array",
+                    "items": {},
+                    "x-typespec-name": "[]"
+                  }
+                },
+                "required": [
+                  "provider",
+                  "category",
+                  "game"
+                ],
+                "x-typespec-name": "(anonymous model)"
+              },
+              "balance": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "required": [
+              "id",
+              "operatorid",
+              "websiteid",
+              "name",
+              "status",
+              "systemStatus",
+              "systemArray",
+              "specs",
+              "levels",
+              "operator",
+              "limits",
+              "balance"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          },
+          "gp": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "specs": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "game": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "gameid": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "company": {
+                        "type": "string"
+                      },
+                      "compId": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "category": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "status": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "specs": {
+                        "type": "string"
+                      },
+                      "api": {
+                        "type": "string"
+                      },
+                      "options": {
+                        "type": "string"
+                      },
+                      "extras": {
+                        "type": "object",
+                        "properties": {
+                          "gameId": {
+                            "type": "string"
+                          },
+                          "providerId": {
+                            "type": "string"
+                          },
+                          "providerSlug": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "gameId",
+                          "providerId",
+                          "providerSlug"
+                        ],
+                        "x-typespec-name": "(anonymous model)"
+                      },
+                      "round": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "commission": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "gameid",
+                      "name",
+                      "company",
+                      "compId",
+                      "category",
+                      "status",
+                      "specs",
+                      "api",
+                      "options",
+                      "extras",
+                      "round",
+                      "commission"
+                    ],
+                    "x-typespec-name": "(anonymous model)"
+                  },
+                  "user": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "serverId": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "operatorId": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "username": {
+                        "type": "string"
+                      },
+                      "firstname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "currency": {
+                        "type": "string"
+                      },
+                      "balance": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "lang": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "serverId",
+                      "operatorId",
+                      "username",
+                      "firstname",
+                      "lastname",
+                      "email",
+                      "currency",
+                      "balance",
+                      "lang"
+                    ],
+                    "x-typespec-name": "(anonymous model)"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "specs",
+                  "game",
+                  "user",
+                  "id"
+                ],
+                "x-typespec-name": "(anonymous model)"
+              }
+            },
+            "required": [
+              "data"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          }
+        },
+        "required": [
+          "result",
+          "gameDetails",
+          "user",
+          "gp"
+        ]
+      },
+      "OpenSpecificGameResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/OpenSpecificGameData"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "PagesLocationsResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "viewOrder": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "parentId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "pages": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "prefix": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "pageOrder": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "locationOrder": {
+                        "type": "integer",
+                        "format": "int32"
+                      }
+                    },
+                    "required": [
+                      "prefix",
+                      "name",
+                      "id",
+                      "pageOrder",
+                      "locationOrder"
+                    ],
+                    "x-typespec-name": "(anonymous model)"
+                  },
+                  "x-typespec-name": "(anonymous model)[]"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "viewOrder",
+                "parentId",
+                "pages"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "PagesResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "createdAt": {
+                  "type": "string"
+                },
+                "hasCss": {
+                  "type": "boolean"
+                },
+                "hasJs": {
+                  "type": "boolean"
+                },
+                "html": {
+                  "type": "string"
+                },
+                "htmlFormatted": {
+                  "type": "boolean"
+                },
+                "isDesktop": {
+                  "type": "boolean"
+                },
+                "isIframe": {
+                  "type": "boolean"
+                },
+                "isKiosk": {
+                  "type": "boolean"
+                },
+                "isMobile": {
+                  "type": "boolean"
+                },
+                "isNewWindow": {
+                  "type": "boolean"
+                },
+                "isVisible": {
+                  "type": "boolean"
+                },
+                "isUrl": {
+                  "type": "boolean"
+                },
+                "languageId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "markDownFormatted": {
+                  "type": "boolean"
+                },
+                "pageId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "updatedAt": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Id",
+                "createdAt",
+                "hasCss",
+                "hasJs",
+                "html",
+                "htmlFormatted",
+                "isDesktop",
+                "isIframe",
+                "isKiosk",
+                "isMobile",
+                "isNewWindow",
+                "isVisible",
+                "isUrl",
+                "languageId",
+                "markDownFormatted",
+                "pageId",
+                "summary",
+                "text",
+                "updatedAt"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "PopupResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "widthMax": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "heightMax": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "MultiLanguage": {
+                "type": "boolean"
+              },
+              "Responsive": {
+                "type": "boolean"
+              },
+              "header": {
+                "type": "string"
+              },
+              "hasTabs": {
+                "type": "boolean"
+              },
+              "hasButtons": {
+                "type": "boolean"
+              },
+              "hasHeader": {
+                "type": "boolean"
+              },
+              "headerIsUrl": {
+                "type": "boolean"
+              },
+              "headerIsText": {
+                "type": "boolean"
+              },
+              "headerIsImage": {
+                "type": "boolean"
+              },
+              "headerIsVideo": {
+                "type": "boolean"
+              },
+              "headerIsIframe": {
+                "type": "boolean"
+              },
+              "headerIsHtml": {
+                "type": "boolean"
+              },
+              "buttons": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "color": {
+                      "type": "string"
+                    },
+                    "viewOrder": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "required": [
+                    "text",
+                    "name",
+                    "url",
+                    "color",
+                    "viewOrder"
+                  ],
+                  "x-typespec-name": "(anonymous model)"
+                },
+                "x-typespec-name": "(anonymous model)[]"
+              },
+              "tabs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "viewOrder": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "required": [
+                    "text",
+                    "name",
+                    "viewOrder"
+                  ],
+                  "x-typespec-name": "(anonymous model)"
+                },
+                "x-typespec-name": "(anonymous model)[]"
+              }
+            },
+            "required": [
+              "name",
+              "widthMax",
+              "heightMax",
+              "MultiLanguage",
+              "Responsive",
+              "header",
+              "hasTabs",
+              "hasButtons",
+              "hasHeader",
+              "headerIsUrl",
+              "headerIsText",
+              "headerIsImage",
+              "headerIsVideo",
+              "headerIsIframe",
+              "headerIsHtml",
+              "buttons",
+              "tabs"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "ProvidersResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "providerId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "operatorId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "status": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "createdAt": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "prefix": {
+                  "type": "string"
+                },
+                "extrafields": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Id",
+                "providerId",
+                "operatorId",
+                "status",
+                "createdAt",
+                "name",
+                "prefix",
+                "extrafields"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "RegisterRequest": {
+        "type": "object",
+        "properties": {
+          "cpf": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "gsm": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "newpassword": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "surname": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cpf",
+          "email",
+          "gsm",
+          "lang",
+          "name",
+          "newpassword",
+          "password",
+          "surname"
+        ]
+      },
+      "RegisterResponse": {
+        "type": "object",
+        "properties": {
+          "birthdate": {
+            "type": "string"
+          },
+          "cpf": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "birthdate",
+          "cpf",
+          "email"
+        ]
+      },
+      "SpecGamesData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      },
+      "SpecGamesResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpecGamesData"
+            },
+            "x-typespec-name": "SpecGamesData[]"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "data"
+        ]
+      },
+      "SpecSpecificGameData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "compId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "category": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "logo": {
+            "type": "string"
+          },
+          "specs": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "compId",
+          "category",
+          "status",
+          "logo",
+          "specs"
+        ]
+      },
+      "SpecSpecificGameResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpecSpecificGameData"
+            },
+            "x-typespec-name": "SpecSpecificGameData[]"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "SportsRequest": {
+        "type": "object",
+        "properties": {
+          "reqId": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reqId",
+          "lang",
+          "startDate",
+          "endDate"
+        ]
+      },
+      "SportsResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "matchCount": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "required": [
+                "title",
+                "status",
+                "id",
+                "matchCount"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "status",
+          "results"
+        ]
+      },
+      "TicketsRequest": {
+        "type": "object",
+        "properties": {
+          "endDate": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "endDate",
+          "lang",
+          "startDate"
+        ]
+      },
+      "TicketsResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tickets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "userid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "currencyId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "operatorid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "serverid": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "pin": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "createdAt": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "updatedAt": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "ticketType": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "totalStake": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "totalTickets": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "totalTipps": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "rate": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "income": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "maxPay": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "userMaxPay": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "bonusPay": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "taxPay": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "systemArray": {
+                  "type": "array",
+                  "items": {},
+                  "x-typespec-name": "[]"
+                },
+                "isLive": {
+                  "type": "boolean"
+                },
+                "oddChangeOk": {
+                  "type": "boolean"
+                },
+                "printed": {
+                  "type": "boolean"
+                },
+                "paid": {
+                  "type": "boolean"
+                },
+                "canCashout": {
+                  "type": "boolean"
+                },
+                "isArchived": {
+                  "type": "boolean"
+                },
+                "cashOut": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "siteCommission": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "tips": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "ticketId": {
+                        "type": "string"
+                      },
+                      "selectionId": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "marketId": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "matchId": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "sportId": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "categoryId": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "tournamentId": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "marketType": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "selectionType": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "team1": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "team2": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "createdAt": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "updatedAt": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "status": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "special": {
+                        "type": "string"
+                      },
+                      "odd": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "matchDate": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "opchange": {
+                        "type": "boolean"
+                      },
+                      "homevalue": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "awayvalue": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "handicap": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "sequence": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "homescore": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "awayscore": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "matchminute": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "isLive": {
+                        "type": "boolean"
+                      },
+                      "banko": {
+                        "type": "boolean"
+                      },
+                      "canceledType": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "src": {
+                        "type": "integer",
+                        "format": "int32"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "ticketId",
+                      "selectionId",
+                      "marketId",
+                      "matchId",
+                      "sportId",
+                      "categoryId",
+                      "tournamentId",
+                      "marketType",
+                      "selectionType",
+                      "team1",
+                      "team2",
+                      "createdAt",
+                      "updatedAt",
+                      "status",
+                      "special",
+                      "odd",
+                      "matchDate",
+                      "opchange",
+                      "homevalue",
+                      "awayvalue",
+                      "handicap",
+                      "sequence",
+                      "homescore",
+                      "awayscore",
+                      "matchminute",
+                      "isLive",
+                      "banko",
+                      "canceledType",
+                      "src"
+                    ],
+                    "x-typespec-name": "(anonymous model)"
+                  },
+                  "x-typespec-name": "(anonymous model)[]"
+                },
+                "cashOutData": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "p": {
+                        "type": "string"
+                      },
+                      "o": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "v": {
+                        "type": "object",
+                        "properties": {
+                          "status": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "canCashout": {
+                            "type": "boolean"
+                          },
+                          "ticketType": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "status",
+                          "canCashout",
+                          "ticketType"
+                        ],
+                        "x-typespec-name": "(anonymous model)"
+                      }
+                    },
+                    "required": [
+                      "p",
+                      "o",
+                      "v"
+                    ],
+                    "x-typespec-name": "(anonymous model)"
+                  },
+                  "x-typespec-name": "(anonymous model)[]"
+                },
+                "cancel": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "userid",
+                "currencyId",
+                "operatorid",
+                "serverid",
+                "pin",
+                "createdAt",
+                "updatedAt",
+                "ticketType",
+                "status",
+                "totalStake",
+                "totalTickets",
+                "totalTipps",
+                "rate",
+                "income",
+                "maxPay",
+                "userMaxPay",
+                "bonusPay",
+                "taxPay",
+                "systemArray",
+                "isLive",
+                "oddChangeOk",
+                "printed",
+                "paid",
+                "canCashout",
+                "isArchived",
+                "cashOut",
+                "siteCommission",
+                "tips",
+                "cashOutData",
+                "cancel"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          },
+          "userid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "operatorid": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "status",
+          "tickets",
+          "userid",
+          "operatorid"
+        ]
+      },
+      "TournamentRequest": {
+        "type": "object",
+        "properties": {
+          "reqId": {
+            "type": "string"
+          },
+          "sportId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reqId",
+          "sportId",
+          "lang",
+          "startDate",
+          "endDate"
+        ]
+      },
+      "TournamentResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "n": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "c": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "lc": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "required": [
+                "n",
+                "id",
+                "c",
+                "lc"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "status",
+          "results"
+        ]
+      },
+      "TrackierLoginResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "WithdrawStatusResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "Id": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              },
+              "cashbox": {
+                "type": "string"
+              },
+              "createAt": {
+                "type": "string"
+              },
+              "cureId": {
+                "type": "string"
+              },
+              "operatorId": {
+                "type": "string"
+              },
+              "paidamount": {
+                "type": "string"
+              },
+              "processor": {
+                "type": "string"
+              },
+              "serverId": {
+                "type": "string"
+              },
+              "spec": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "updateAt": {
+                "type": "string"
+              },
+              "userId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Id",
+              "amount",
+              "cashbox",
+              "createAt",
+              "cureId",
+              "operatorId",
+              "paidamount",
+              "processor",
+              "serverId",
+              "spec",
+              "status",
+              "updateAt",
+              "userId"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "WithdrawsFilterRequest": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "array",
+            "items": {},
+            "x-typespec-name": "[]"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "order": {
+            "type": "string"
+          },
+          "orderAs": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "createdAt",
+          "lang",
+          "limit",
+          "order",
+          "orderAs",
+          "page"
+        ]
+      },
+      "WithdrawsFilterResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string"
+                },
+                "serverId": {
+                  "type": "string"
+                },
+                "operatorId": {
+                  "type": "string"
+                },
+                "userId": {
+                  "type": "string"
+                },
+                "curId": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "string"
+                },
+                "paidamount": {
+                  "type": "string"
+                },
+                "processor": {
+                  "type": "string"
+                },
+                "cashbox": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string"
+                },
+                "updatedAt": {
+                  "type": "string"
+                },
+                "spec": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Id",
+                "serverId",
+                "operatorId",
+                "userId",
+                "curId",
+                "amount",
+                "paidamount",
+                "processor",
+                "cashbox",
+                "status",
+                "createdAt",
+                "updatedAt",
+                "spec"
+              ],
+              "x-typespec-name": "(anonymous model)"
+            },
+            "x-typespec-name": "(anonymous model)[]"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "limit": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "page": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "total": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "limit",
+              "page",
+              "total"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          }
+        },
+        "required": [
+          "status",
+          "data",
+          "meta"
+        ]
+      },
+      "frontendLangResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "user": {
+                "type": "object",
+                "properties": {
+                  "opName": {
+                    "type": "string"
+                  },
+                  "balance": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "bonusBalance": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "lang": {
+                    "type": "string"
+                  },
+                  "role_id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "bonusJson": {
+                    "type": "object",
+                    "properties": {
+                      "cashBackPercent": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "moneyPercent": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "cashOutPercent": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "cancelTimeout": {
+                        "type": "integer",
+                        "format": "int32"
+                      }
+                    },
+                    "required": [
+                      "cashBackPercent",
+                      "moneyPercent",
+                      "cashOutPercent",
+                      "cancelTimeout"
+                    ],
+                    "x-typespec-name": "(anonymous model)"
+                  }
+                },
+                "required": [
+                  "opName",
+                  "balance",
+                  "bonusBalance",
+                  "currency",
+                  "lang",
+                  "role_id",
+                  "bonusJson"
+                ],
+                "x-typespec-name": "(anonymous model)"
+              },
+              "menu": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "icon": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "path",
+                    "icon"
+                  ],
+                  "x-typespec-name": "(anonymous model)"
+                },
+                "x-typespec-name": "(anonymous model)[]"
+              },
+              "langs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "x-typespec-name": "string[]"
+              },
+              "currencies": {
+                "type": "array",
+                "items": {},
+                "x-typespec-name": "[]"
+              },
+              "limits": {
+                "type": "object",
+                "properties": {
+                  "make_coupon": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "fields": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "value",
+                              "type",
+                              "name"
+                            ],
+                            "x-typespec-name": "(anonymous model)"
+                          },
+                          "x-typespec-name": "(anonymous model)[]"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "status",
+                        "fields"
+                      ],
+                      "x-typespec-name": "(anonymous model)"
+                    },
+                    "x-typespec-name": "(anonymous model)[]"
+                  }
+                },
+                "required": [
+                  "make_coupon"
+                ],
+                "x-typespec-name": "(anonymous model)"
+              },
+              "permissions": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "status"
+                ],
+                "x-typespec-name": "(anonymous model)"
+              }
+            },
+            "required": [
+              "user",
+              "menu",
+              "langs",
+              "currencies",
+              "limits",
+              "permissions"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "limitRequest": {
+        "type": "object",
+        "properties": {
+          "sports": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "x-typespec-name": "int32[]"
+            },
+            "x-typespec-name": "int32[][]"
+          }
+        },
+        "required": [
+          "sports"
+        ]
+      },
+      "limitResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "id": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "server": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "oddLimit": {
+                "type": "object",
+                "properties": {
+                  "minOdd": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "maxOdd": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "minTotalOdd": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "maxTotalOdd": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "sameCoupon": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "sameMatch": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                },
+                "required": [
+                  "minOdd",
+                  "maxOdd",
+                  "minTotalOdd",
+                  "maxTotalOdd",
+                  "sameCoupon",
+                  "sameMatch"
+                ],
+                "x-typespec-name": "(anonymous model)"
+              },
+              "couponLimits": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "maxStake": {
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "minStake": {
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "maxPay": {
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "minTip": {
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "betLimit": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "maxStake",
+                    "minStake",
+                    "maxPay",
+                    "minTip",
+                    "betLimit"
+                  ],
+                  "x-typespec-name": "(anonymous model)"
+                },
+                "x-typespec-name": "(anonymous model)[]"
+              }
+            },
+            "required": [
+              "status",
+              "id",
+              "server",
+              "oddLimit",
+              "couponLimits"
+            ],
+            "x-typespec-name": "(anonymous model)"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "marketsResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "langs": {
+            "type": "object",
+            "properties": {},
+            "x-typespec-name": "{}"
+          }
+        },
+        "required": [
+          "status",
+          "langs"
+        ]
+      },
+      "selectionsResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "langs": {
+            "type": "object",
+            "properties": {},
+            "x-typespec-name": "{}"
+          }
+        },
+        "required": [
+          "status",
+          "langs"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "http": {
+        "type": "http",
+        "scheme": "Bearer"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://core-v1.datamixonline.com",
+      "description": "Production",
+      "variables": {}
+    },
+    {
+      "url": "https://core.datamixonline.com",
+      "description": "Stage",
+      "variables": {}
+    }
+  ]
+}
